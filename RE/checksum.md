@@ -105,7 +105,67 @@ void main::main.main(void)
 </pre>
 Đầu tiên, hàm sẽ tạo ra 5 đến 10 phép toán ngẫu nhiên dùng hàm main.s. Nếu trả lời đúng hêt các phép toán thì tiếp tục đến bước nhập checksum, nếu sai thì hàm sẽ gọi main.j để thoát với thông báo lỗi
 <img width="1458" height="134" alt="image" src="https://github.com/user-attachments/assets/e75ba014-2f0c-4a90-9ea0-b0fe0deb5a4d" />
-Vậy giờ ta cần tìm chuỗi checksum đúng, phân tích hàm tiếp ta thấy có hàm ```bash bVar1 = main.i(sVar5);```
+Vậy giờ ta cần tìm chuỗi checksum đúng, phân tích hàm tiếp ta thấy có hàm ```bash bVar1 = main.i(sVar5);``` để kiểm tra checksum. Nếu đúng thì chương trình sẽ chạy tiếp hàm main.k
+Giờ ta hãy phân tích hàm main.i để xem điều kiện của checksum là gì
+### hàm main.i
+<pre lang="markdown"> 
+bool main::main.i(string input)
+{
+  bool bVar1;
+  unsafe.Pointer pvVar2;
+  uint x;
+  uintptr *puVar3;
+  int len;
+  int iVar4;
+  string sVar5;
+  multireturn{[]uint8;error} mVar6;
+  []uint8 src;
+  string input_spill;
+  
+  iVar4 = input.len;
+  while (&stack0x00000000 <= CURRENT_G.stackguard0) {
+    runtime::runtime.morestack_noctxt();
+  }
+  if (iVar4 == 0) {
+    return false;
+  }
+  mVar6 = encoding/hex::encoding/hex.DecodeString(input);
+  puVar3 = mVar6.~r0.array;
+  len = mVar6.~r0.len;
+  if ((mVar6.~r1.tab != (internal/abi.ITab *)0x0) &&
+     (puVar3 = (uintptr *)input.str, len = iVar4, (uintptr *)input.str == (uintptr *)0x0)) {
+    puVar3 = &runtime.zerobase;
+  }
+  pvVar2 = runtime::runtime.makeslice((internal/abi.Type *)&uint8___Uint8_type,len,len);
+  iVar4 = 0;
+  while( true ) {
+    if (len <= iVar4) {
+      src.len = len;
+      src.array = (uint8 *)pvVar2;
+      src.cap = len;
+      sVar5 = encoding/base64::encoding/base64.(*Encoding).EncodeToString
+                        ((encoding/base64.Encoding *)encoding/base64.StdEncoding,src);
+      if (sVar5.len == 0x58) {
+        bVar1 = runtime::runtime.memequal
+                          (sVar5.str,
+                           "ZNc6dY7k+caeaHof3F08RsFslfKEUTmoxaYLzJ8jJm9M2r2HftI7UGCuKCm8pv1+lMCkFeBf O67vigYXHUAo2Q=="
+                           ,0x58);
+      }
+      else {
+        bVar1 = false;
+      }
+      return bVar1;
+    }
+    x = iVar4 + (iVar4 / 7 + (iVar4 >> 0x3f)) * -7;
+    if (6 < x) break;
+    *(byte *)((int)pvVar2 + iVar4) = *(byte *)((int)puVar3 + iVar4) ^ (&DAT_004d4399)[x];
+    iVar4 = iVar4 + 1;
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime.panicIndex(x,iVar4);
+}
+</pre>
+Hàm này kiểm tra xem chuỗi input nhập vào có hợp lệ hay không
 
 
 
