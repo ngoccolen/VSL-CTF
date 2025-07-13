@@ -1,6 +1,7 @@
 # CHECKSUM
 ## Mô tả thử thách
 <img width="711" height="464" alt="image" src="https://github.com/user-attachments/assets/cdd61cc3-10d2-408b-b79f-cff679e4c146" />
+
 ## Chạy chương trình
 <img width="1486" height="761" alt="image" src="https://github.com/user-attachments/assets/d040f5f4-bf55-42f1-a81a-6ef33e784d56" />
 Ta thấy chương trình chạy ngẫu nhiên các phép tính, nhập đúng hết tất cả các phép tính thì chương trình sẽ hiện lên dòng yêu cầu nhập checksum. Nếu sai phép tính hoặc sai checksum thì chương trình sẽ kết thúc
