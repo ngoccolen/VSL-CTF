@@ -8,61 +8,9 @@ Ta thấy chương trình chạy ngẫu nhiên các phép tính, nhập đúng h
 Mở chương trình bằng ghidra
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f9d0250-096d-41ed-b8e7-2819f4384d7b" />
 Ta thấy có rất nhiều hàm main ở đây, trước tiên ta mở hàm main.main và phân tích nó
-```cpp
+<pre lang="markdown"> ```c
 void main::main.main(void)
 {
-  bool bVar1;
-  int iVar2;
-  uint64 val;
-  internal/abi.Type *piVar3;
-  undefined8 uVar4;
-  io.Writer w;
-  io.Writer w_00;
-  io.Writer w_01;
-  io.Writer w_02;
-  io.Writer w_03;
-  io.Writer w_04;
-  string message;
-  io.Writer w_05;
-  io.Writer w_06;
-  io.Writer w_07;
-  string sVar5;
-  string message_00;
-  io.Writer w_08;
-  time.Time tVar6;
-  []interface {} a;
-  []interface {} a_00;
-  []interface {} a_01;
-  []interface {} a_02;
-  []interface {} a_03;
-  []interface {} a_04;
-  []interface {} a_05;
-  []interface {} a_06;
-  []interface {} a_07;
-  []interface {} a_08;
-  internal/abi.Type *local_b8;
-  undefined **local_b0;
-  internal/abi.Type *local_a8;
-  undefined **local_a0;
-  internal/abi.Type *local_98;
-  undefined **local_90;
-  internal/abi.Type *local_88;
-  undefined **local_80;
-  internal/abi.Type *local_78;
-  undefined **local_70;
-  internal/abi.Type *local_68;
-  undefined **local_60;
-  internal/abi.Type *local_58;
-  void *pvStack_50;
-  internal/abi.Type *local_48;
-  void *pvStack_40;
-  internal/abi.Type *local_38;
-  undefined **local_30;
-  internal/abi.Type *local_28;
-  undefined **local_20;
-  internal/abi.Type *local_18;
-  undefined **local_10;
-  
   piVar3 = (internal/abi.Type *)0x0;
   uVar4 = 0;
   while (&local_90 <= CURRENT_G.stackguard0) {
@@ -186,7 +134,7 @@ void main::main.main(void)
   main.k(sVar5);
   return;
 }
-```
+```</pre>
 
 
  
