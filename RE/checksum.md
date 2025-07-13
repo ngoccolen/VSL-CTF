@@ -5,6 +5,7 @@
 ## Chạy chương trình
 <img width="1486" height="761" alt="image" src="https://github.com/user-attachments/assets/d040f5f4-bf55-42f1-a81a-6ef33e784d56" />
 Ta thấy chương trình chạy ngẫu nhiên các phép tính, nhập đúng hết tất cả các phép tính thì chương trình sẽ hiện lên dòng yêu cầu nhập checksum. Nếu sai phép tính hoặc sai checksum thì chương trình sẽ kết thúc
+
 ## Phân tích chương trình
 Mở chương trình bằng ghidra
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f9d0250-096d-41ed-b8e7-2819f4384d7b" />
@@ -12,43 +13,9 @@ Ta thấy có rất nhiều hàm main ở đây, trước tiên ta mở hàm mai
 <pre lang="markdown"> 
 void main::main.main(void)
 {
-  piVar3 = (internal/abi.Type *)0x0;
-  uVar4 = 0;
-  while (&local_90 <= CURRENT_G.stackguard0) {
-    runtime::runtime.morestack_noctxt();
-  }
-  tVar6 = time::time.Now();
-  iVar2 = tVar6.ext;
-  if ((int)tVar6.wall < 0) {
-    iVar2 = ((tVar6.wall << 1) >> 0x1f) + 0xdd7b17f80;
-  }
   math/rand::math/rand.Seed
             ((int)(sdword)((dword)tVar6.wall & 0x3fffffff) + iVar2 * 1000000000 +
              -0x5e4dfc14c2e60000);
-  local_18 = &string___String_type;
-  local_10 = &PTR_DAT_004fd8e0;
-  w.data = os.Stdout;
-  w.tab = (io.Writer_itab *)&os::*os.File__implements__io.Writer__itab;
-  a.len = 1;
-  a.array = (interface {} *)&local_18;
-  a.cap = 1;
-  fmt::fmt.Fprintln(w,a);
-  local_28 = &string___String_type;
-  local_20 = &PTR_DAT_004fd8f0;
-  w_00.data = os.Stdout;
-  w_00.tab = (io.Writer_itab *)&os::*os.File__implements__io.Writer__itab;
-  a_00.len = 1;
-  a_00.array = (interface {} *)&local_28;
-  a_00.cap = 1;
-  fmt::fmt.Fprintln(w_00,a_00);
-  local_38 = &string___String_type;
-  local_30 = &PTR_DAT_004fd900;
-  w_01.data = os.Stdout;
-  w_01.tab = (io.Writer_itab *)&os::*os.File__implements__io.Writer__itab;
-  a_01.len = 1;
-  a_01.array = (interface {} *)&local_38;
-  a_01.cap = 1;
-  fmt::fmt.Fprintln(w_01,a_01);
   iVar2 = math/rand::math/rand.Intn(6);
   val = 0;
   while ((int)val < (int)(iVar2 + 5U)) {
@@ -136,6 +103,10 @@ void main::main.main(void)
   return;
 }
 </pre>
+Đầu tiên, hàm sẽ tạo ra 5 đến 10 phép toán ngẫu nhiên dùng hàm main.s. Nếu trả lời đúng hêt các phép toán thì tiếp tục đến bước nhập checksum, nếu sai thì hàm sẽ gọi main.j để thoát với thông báo lỗi
+<img width="1458" height="134" alt="image" src="https://github.com/user-attachments/assets/e75ba014-2f0c-4a90-9ea0-b0fe0deb5a4d" />
+Vậy giờ ta cần tìm chuỗi checksum đúng, phân tích hàm tiếp ta thấy có hàm ```bash bVar1 = main.i(sVar5);```
+
 
 
 
