@@ -8,7 +8,7 @@ Ta thấy chương trình chạy ngẫu nhiên các phép tính, nhập đúng h
 Mở chương trình bằng ghidra
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f9d0250-096d-41ed-b8e7-2819f4384d7b" />
 Ta thấy có rất nhiều hàm main ở đây, trước tiên ta mở hàm main.main và phân tích nó
-<pre lang="markdown"> ```c
+<pre lang="markdown"> 
 void main::main.main(void)
 {
   piVar3 = (internal/abi.Type *)0x0;
@@ -134,7 +134,8 @@ void main::main.main(void)
   main.k(sVar5);
   return;
 }
-```</pre>
+</pre>
+
 
 
  
