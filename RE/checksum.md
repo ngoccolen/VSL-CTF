@@ -165,7 +165,39 @@ bool main::main.i(string input)
   runtime::runtime.panicIndex(x,iVar4);
 }
 </pre>
-Hàm này kiểm tra xem chuỗi input nhập vào có hợp lệ hay không
+Hàm này kiểm tra xem chuỗi input nhập vào có hợp lệ hay không bằng cách giải mã chuỗi hex ta nhập thành 1 mảng các byte, mỗi byte sẽ bị XOR với key -> kết quả được mã hóa bằng base64 -> so sánh với chuỗi base64 ```bash ZNc6dY7k+caeaHof3F08RsFslfKEUTmoxaYLzJ8jJm9M2r2HftI7UGCuKCm8pv1+lMCkFeBf O67vigYXHUAo2Q==``` trong hàm. Ta có thể dịch ngược hàm, rồi viết script để tìm chuỗi input đúng
+Trước tiên ta tìm XOR key từ ```bash &DAT_004d4399```
+<img width="759" height="164" alt="image" src="https://github.com/user-attachments/assets/f6fa0f23-8738-4560-94a4-633949d5e6da" />
+Viết script để lấy được chuỗi input đúng
+<pre lang="markdown"> 
+import base64
+
+key = [0x56, 0x53, 0x4C, 0x32, 0x30, 0x32, 0x35]
+
+target = "ZNc6dY7k+caeaHof3F08RsFslfKEUTmoxaYLzJ8jJm9M2r2HftI7UGCuKCm8pv1+lMCkFeBfO67vigYXHUAo2Q=="
+
+xored = base64.b64decode(target)
+
+decoded = bytearray()
+for i in range(len(xored)):
+    decoded.append(xored[i] ^ key[i % 7])
+
+hex_input = decoded.hex()
+print(hex_input)
+</pre>
+Và ta được 1 chuỗi như này
+<img width="1194" height="51" alt="image" src="https://github.com/user-attachments/assets/61441190-876f-4e6f-b299-857a464a219a" />
+Nhập chuỗi này vào chương trình thì ta được thông báo thành công
+<img width="1442" height="92" alt="image" src="https://github.com/user-attachments/assets/72b15e3b-0c3c-43e8-b154-9b83e89d3147" />
+Phân tích hàm main.k ta thấy nếu nhập checksum đúng thì chương trình sẽ in ra 1 bức ảnh ```bash sVar9.str = (uint8 *)"READ_VSL_FLAG_%s.png";```
+Mở bức ảnh này trong đường dẫn cùng với checksum.exe ta được flag
+<img width="1416" height="714" alt="image" src="https://github.com/user-attachments/assets/744db231-9949-4052-a018-34766a84602c" />
+VSL{X0r_1s_Th3_K3y_And_M4th_Rul3z_6722}
+
+
+
+
+
 
 
 
