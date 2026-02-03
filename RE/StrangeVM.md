@@ -89,7 +89,7 @@ while (1) {
 VM đọc từng opcode trong code
 Gặp opcode 0 → kết thúc thực thi
 -> phân tích từng opcode
-Opcode 5
+### Opcode 5
 <pre lang="markdown">
 case 5:
     idx = readInt(code + v22);
@@ -97,7 +97,7 @@ case 5:
     v21 = v22 + 4;
 </pre>
 VM đọc từng ký tự input và lưu vào mem[idx]
-Opcode 1
+### Opcode 1
 <pre lang="markdown">
 case 1:
     idx = readInt(code + v22);
@@ -105,7 +105,7 @@ case 1:
     v21 = v22 + 5;
 </pre>
 Lấy mem[idx] rồi cộng thêm một số cố định
-Opcode 2
+### Opcode 2
 <pre lang="markdown">
 case 2:
     idx = readInt(code + v22);
@@ -117,8 +117,15 @@ Lấy mem[idx] rồi trừ đi một số cố định
 mem sau khi VM chạy phải trùng với mảng byte đã dump trong địa chỉ ```bash unk_4A0278```
 => Nhận xét
 Từ các opcode trên có thể thấy: VM thực hiện: Nhập ký tự sau đó cộng / trừ hằng số
-=> ``` bash Output[i] = Input[i] + Delta[i] ```
-Do đó ta có thể đảo ngược phép biến đổi.
+=> ``` Output[i] = Input[i] + delta[i] ```
+Trong đó:
+- `Input[i]` là ký tự người dùng nhập
+- `Output[i]` là giá trị trong `mem` sau khi VM chạy
+- `delta[i]` là tổng các hằng số được cộng / trừ tại vị trí đó
+Vì chương trình so sánh `Output (mem)` với `Target[i]`, nên nếu xác định được `delta[i]` thì có thể đảo ngược phép biến đổi để suy ra `Input[i]`.
+Để xác định chính xác `delta[i]`, ta sử dụng GDB để:
+- Chạy chương trình với một input thử
+- Dump `mem` ngay trước khi gọi `strcmp`
 ## Khai thác bằng GDB
 ### Mở chương trình trong GDB
 <pre lang="markdown">
