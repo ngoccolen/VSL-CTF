@@ -18,10 +18,10 @@ if (!strcmp(mem, flag))
     puts("Congratulations!");
 ```
 Ta thấy có 2 hàm
-executeVM()
-→ Toàn bộ logic xử lý và kiểm tra flag nằm hàm này
-strcmp(mem, flag)
-→ So sánh kết quả sau khi VM chạy với flag thật
+executeVM() → Toàn bộ logic xử lý và kiểm tra flag nằm hàm này
+
+strcmp(mem, flag) → So sánh kết quả sau khi VM chạy với flag thật
+
 Trước tiên, ta hãy dump flag trong .rodata
 <img width="559" height="24" alt="image" src="https://github.com/user-attachments/assets/8ff4cb0f-e766-43c4-bfe6-3b8e7df42589" />
 Tại địa chỉ unk_4A0278:
