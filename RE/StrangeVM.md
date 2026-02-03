@@ -116,6 +116,7 @@ case 2:
 </pre>
 Lấy mem[idx] rồi trừ đi một số cố định
 -> So sánh với flag thật
+
 mem sau khi VM chạy phải trùng với mảng byte đã dump trong địa chỉ ```bash unk_4A0278```
 => Nhận xét
 Từ các opcode trên có thể thấy: VM thực hiện: Nhập ký tự sau đó cộng / trừ hằng số
@@ -150,7 +151,7 @@ pascalCTF{AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}
 <pre lang="markdown">
 x/40xb $rsi
 </pre>
-####  Chuỗi output sau VM
+####  Chuỗi output 
 <pre lang="markdown">
 x/40xb $rdi
 </pre>
