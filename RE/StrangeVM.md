@@ -24,6 +24,7 @@ strcmp(mem, flag) → So sánh kết quả sau khi VM chạy với flag thật
 
 Trước tiên, ta hãy dump flag trong .rodata
 <img width="559" height="24" alt="image" src="https://github.com/user-attachments/assets/8ff4cb0f-e766-43c4-bfe6-3b8e7df42589" />
+
 Tại địa chỉ unk_4A0278:
 <pre lang ="markdown">
 .rodata:00000000004A0278 unk_4A0278      db  56h ; V             ; DATA XREF: .data:flag↓o
@@ -120,18 +121,30 @@ Từ các opcode trên có thể thấy: VM thực hiện: Nhập ký tự sau �
 Do đó ta có thể đảo ngược phép biến đổi.
 ## Khai thác bằng GDB
 ### Mở chương trình trong GDB
+<pre lang="markdown">
 gdb ./vm
+</pre>
 ### Đặt breakpoint tại strcmp trong main
+<pre lang="markdown">
 b *0x40221d
+</pre>
 ### Chạy chương trình
+<pre lang="markdown">
 run code.pascal
-### Nhập input mẫu
+</pre>
+### Nhập input thử
+<pre lang="markdown">
 pascalCTF{AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}
+</pre>
 ### Dump dữ liệu khi dừng breakpoint
 ####  Chuỗi target 
+<pre lang="markdown">
 x/40xb $rsi
+</pre>
 ####  Chuỗi output sau VM
+<pre lang="markdown">
 x/40xb $rdi
+</pre>
 <img width="934" height="283" alt="image" src="https://github.com/user-attachments/assets/4ec17336-0e64-4b05-8392-4d5118a9fec4" />
 ### viết script giải mã
 <pre lang="markdown">
