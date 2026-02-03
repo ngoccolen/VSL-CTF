@@ -156,6 +156,7 @@ x/40xb $rsi
 x/40xb $rdi
 </pre>
 <img width="934" height="283" alt="image" src="https://github.com/user-attachments/assets/4ec17336-0e64-4b05-8392-4d5118a9fec4" />
+
 ### viết script giải mã
 <pre lang="markdown">
 target = [
