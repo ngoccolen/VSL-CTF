@@ -1,5 +1,6 @@
 # StrangeVM
 ## Mô tả challenge
+
 <img width="627" height="573" alt="image" src="https://github.com/user-attachments/assets/f78be957-12e3-43e8-9f90-476e66f90b04" />
 
 ## Solution
@@ -23,6 +24,7 @@ executeVM() → Toàn bộ logic xử lý và kiểm tra flag nằm hàm này
 strcmp(mem, flag) → So sánh kết quả sau khi VM chạy với flag thật
 
 Trước tiên, ta hãy dump flag trong .rodata
+
 <img width="559" height="24" alt="image" src="https://github.com/user-attachments/assets/8ff4cb0f-e766-43c4-bfe6-3b8e7df42589" />
 
 Tại địa chỉ unk_4A0278:
@@ -180,6 +182,7 @@ for i in range(len(target)):
 
 print("Flag:", flag)
 </pre>
+
 <img width="1588" height="715" alt="image" src="https://github.com/user-attachments/assets/e6872d8c-8a3f-4dbe-bf56-9f1921c001df" />
 
 
