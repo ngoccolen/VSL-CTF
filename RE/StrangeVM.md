@@ -133,7 +133,7 @@ x/40xb $rsi
 ####  Chuỗi output sau VM
 x/40xb $rdi
 <img width="934" height="283" alt="image" src="https://github.com/user-attachments/assets/4ec17336-0e64-4b05-8392-4d5118a9fec4" />
-8. Giải mã flag bằng Python
+### viết script giải mã
 <pre lang="markdown">
 target = [
     0x56, 0x4C, 0x75, 0x5C, 0x38, 0x6D, 0x39, 0x58,
