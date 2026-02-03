@@ -1,7 +1,9 @@
 # StrangeVM
 ## Mô tả challenge
 <img width="627" height="573" alt="image" src="https://github.com/user-attachments/assets/f78be957-12e3-43e8-9f90-476e66f90b04" />
+
 ## Solution
+
 ## Challenge Overview
 Challenge cung cấp:
 - File thực thi: `vm`
